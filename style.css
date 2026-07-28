@@ -1,0 +1,403 @@
+/* =====================================
+   نور القرآن - Website Styles
+===================================== */
+
+:root{
+    --primary:#6b4f2a;
+    --secondary:#b08d57;
+    --accent:#d4af37;
+    --background:#f8f4ec;
+    --surface:#ffffff;
+    --text:#2f2f2f;
+    --shadow:0 12px 30px rgba(0,0,0,.08);
+    --radius:18px;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    direction:rtl;
+    background:var(--background);
+    color:var(--text);
+    font-family:'Cairo',sans-serif;
+    line-height:1.9;
+}
+
+/* =====================
+   Navigation
+===================== */
+
+header{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:rgba(255,255,255,.95);
+    backdrop-filter:blur(10px);
+    box-shadow:0 3px 12px rgba(0,0,0,.08);
+}
+
+nav{
+    max-width:1200px;
+    margin:auto;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:18px 30px;
+}
+
+.logo{
+    font-family:'Amiri',serif;
+    font-size:2rem;
+    color:var(--primary);
+    font-weight:bold;
+}
+
+nav ul{
+    list-style:none;
+    display:flex;
+    gap:30px;
+}
+
+nav a{
+    text-decoration:none;
+    color:var(--primary);
+    font-weight:600;
+    transition:.3s;
+}
+
+nav a:hover{
+    color:var(--accent);
+}
+
+/* =====================
+   Hero
+===================== */
+
+.hero{
+    max-width:1200px;
+    margin:auto;
+    padding:70px 30px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    align-items:center;
+    gap:60px;
+}
+
+.hero-image{
+    text-align:center;
+}
+
+.hero-image img{
+    width:100%;
+    max-width:380px;
+    border-radius:20px;
+    box-shadow:var(--shadow);
+    transition:.4s;
+}
+
+.hero-image img:hover{
+    transform:translateY(-8px) scale(1.02);
+}
+
+.hero-text h1{
+    font-family:'Amiri',serif;
+    font-size:4rem;
+    color:var(--primary);
+    margin-bottom:15px;
+}
+
+.hero-text h2{
+    color:var(--secondary);
+    margin-bottom:25px;
+    font-weight:600;
+}
+
+.hero-text p{
+    font-size:1.1rem;
+    margin-bottom:35px;
+}
+
+/* =====================
+   Button
+===================== */
+
+.button{
+    display:inline-block;
+    background:linear-gradient(135deg,var(--primary),var(--secondary));
+    color:white;
+    padding:15px 32px;
+    border-radius:40px;
+    text-decoration:none;
+    font-weight:bold;
+    transition:.35s;
+}
+
+.button:hover{
+    transform:translateY(-3px);
+    box-shadow:0 12px 24px rgba(0,0,0,.15);
+}
+
+/* =====================
+   Sections
+===================== */
+
+section{
+    max-width:1100px;
+    margin:70px auto;
+    background:var(--surface);
+    padding:45px;
+    border-radius:var(--radius);
+    box-shadow:var(--shadow);
+}
+
+section h2{
+    text-align:center;
+    margin-bottom:30px;
+    color:var(--primary);
+    font-family:'Amiri',serif;
+    font-size:2.5rem;
+}
+
+section p{
+    text-align:center;
+    font-size:1.08rem;
+}
+
+/* =====================
+   About Image
+===================== */
+
+#about img{
+    display:block;
+    width:100%;
+    max-width:550px;
+    margin:40px auto;
+    border-radius:16px;
+    box-shadow:var(--shadow);
+}
+
+/* =====================
+   Audio
+===================== */
+
+audio{
+    width:100%;
+    margin-top:25px;
+}
+
+/* =====================
+   Gallery
+===================== */
+
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:25px;
+    margin-top:35px;
+}
+
+.gallery img{
+    width:100%;
+    border-radius:16px;
+    box-shadow:var(--shadow);
+    cursor:pointer;
+    transition:.4s;
+}
+
+.gallery img:hover{
+    transform:scale(1.04);
+}
+
+/* =====================
+   Author
+===================== */
+
+#author{
+    text-align:center;
+}
+
+/* =====================
+   Footer
+===================== */
+
+footer{
+    background:var(--primary);
+    color:white;
+    text-align:center;
+    padding:30px;
+    margin-top:70px;
+}
+
+/* =====================
+   Scroll Animation
+===================== */
+
+section,
+.hero{
+    animation:fadeUp .9s ease;
+}
+
+@keyframes fadeUp{
+
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+/* =====================
+   Responsive
+===================== */
+
+@media(max-width:900px){
+
+    nav{
+        flex-direction:column;
+        gap:15px;
+    }
+
+    nav ul{
+        flex-wrap:wrap;
+        justify-content:center;
+    }
+
+    .hero{
+        grid-template-columns:1fr;
+        text-align:center;
+    }
+
+    .hero-text h1{
+        font-size:3rem;
+    }
+
+    section{
+        margin:40px 20px;
+        padding:30px;
+    }
+
+}
+
+@media(max-width:600px){
+
+    .hero-text h1{
+        font-size:2.4rem;
+    }
+
+    .logo{
+        font-size:1.6rem;
+    }
+
+    section h2{
+        font-size:2rem;
+    }
+
+    nav ul{
+        gap:15px;
+    }
+
+    .button{
+        width:100%;
+        text-align:center;
+    }
+
+}
+/* =====================
+   Active Navigation
+===================== */
+
+nav a.active{
+    color:var(--accent);
+    border-bottom:2px solid var(--accent);
+    padding-bottom:5px;
+}
+
+/* =====================
+   Reveal Animation
+===================== */
+
+.hidden{
+    opacity:0;
+    transform:translateY(40px);
+    transition:all .8s ease;
+}
+
+.visible{
+    opacity:1;
+    transform:translateY(0);
+}
+
+/* =====================
+   Lightbox
+===================== */
+
+#lightbox{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.92);
+    justify-content:center;
+    align-items:center;
+    z-index:5000;
+}
+
+#lightbox img{
+    max-width:90%;
+    max-height:90%;
+    border-radius:12px;
+    box-shadow:0 20px 50px rgba(0,0,0,.4);
+}
+
+#close-lightbox{
+    position:absolute;
+    top:25px;
+    right:35px;
+    color:white;
+    font-size:3rem;
+    cursor:pointer;
+    user-select:none;
+}
+
+/* =====================
+   Back To Top
+===================== */
+
+#topButton{
+    position:fixed;
+    bottom:30px;
+    left:30px;
+    width:50px;
+    height:50px;
+    border:none;
+    border-radius:50%;
+    background:var(--primary);
+    color:white;
+    font-size:1.4rem;
+    cursor:pointer;
+    opacity:0;
+    visibility:hidden;
+    transition:.3s;
+    box-shadow:0 10px 25px rgba(0,0,0,.2);
+}
+
+#topButton.show{
+    opacity:1;
+    visibility:visible;
+}
+
+#topButton:hover{
+    transform:translateY(-4px);
+  }
