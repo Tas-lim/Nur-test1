@@ -1217,9 +1217,11 @@ html[dir="rtl"] .about-image::before {
 .gallery {
     display: grid;
     grid-template-columns:
-        repeat(4, minmax(0, 1fr));
+        repeat(3, minmax(0, 1fr));
 
-    gap: clamp(18px, 2.7vw, 31px);
+    gap: clamp(24px, 3vw, 38px);
+    max-width: 1200px;
+    margin-inline: auto;
 }
 
 .gallery-item {
@@ -1255,9 +1257,15 @@ html[dir="rtl"] .about-image::before {
 }
 
 .gallery-button img {
+    display: block;
+
     width: 100%;
-    aspect-ratio: 0.72;
-    object-fit: cover;
+    height: auto;
+
+    object-fit: contain;
+    object-position: center;
+
+    background: var(--cream-200);
 
     transition:
         transform var(--transition-slow),
@@ -1265,8 +1273,8 @@ html[dir="rtl"] .about-image::before {
 }
 
 .gallery-button:hover img {
-    transform: scale(1.045);
-    filter: brightness(0.78);
+    transform: scale(1.01);
+    filter: brightness(0.88);
 }
 
 .gallery-overlay {
@@ -2519,7 +2527,9 @@ html[dir="rtl"] .purchase-image img {
 
     .gallery {
         grid-template-columns:
-            repeat(3, minmax(0, 1fr));
+            repeat(2, minmax(0, 1fr));
+
+        max-width: 850px;
     }
 
     .audio-container {
@@ -2812,10 +2822,20 @@ html[dir="rtl"] .purchase-image img {
     }
 
     .gallery {
-        grid-template-columns:
-            repeat(2, minmax(0, 1fr));
+        grid-template-columns: 1fr;
 
-        gap: 15px 11px;
+        gap: 28px;
+    }
+
+    .gallery-item {
+       width: min(100%, 520px);
+       margin-inline: auto;
+    }
+
+    .gallery-item figcaption {
+       margin-top: 10px;
+
+       font-size: 0.85rem;
     }
 
     .gallery-button {
