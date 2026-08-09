@@ -1217,9 +1217,9 @@ html[dir="rtl"] .about-image::before {
 .gallery {
     display: grid;
     grid-template-columns:
-        repeat(3, minmax(0, 1fr));
+        repeat(2, minmax(0, 1fr));
 
-    gap: clamp(24px, 3vw, 38px);
+    gap: clamp(28px, 3.5vw, 46px);
     max-width: 1200px;
     margin-inline: auto;
 }
@@ -2529,7 +2529,7 @@ html[dir="rtl"] .purchase-image img {
         grid-template-columns:
             repeat(2, minmax(0, 1fr));
 
-        max-width: 850px;
+        max-width: 950px;
     }
 
     .audio-container {
