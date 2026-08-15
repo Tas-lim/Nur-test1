@@ -1572,7 +1572,7 @@ html[lang="ar"] .player-label {
         transform var(--transition-fast);
 }
 
-.player-control:hover:not(:disabled) {
+.player-control:hover:not(:disabled):not([aria-disabled="true"]) {
     background: rgba(255, 255, 255, 0.14);
     border-color: var(--gold-light);
 
@@ -1582,6 +1582,71 @@ html[lang="ar"] .player-label {
 .player-control:disabled {
     opacity: 0.36;
     cursor: not-allowed;
+}
+
+/* =========================================
+   PLAYER DOWNLOAD BUTTONS
+========================================= */
+
+.player-download {
+    text-decoration: none;
+}
+
+.player-download:hover:not([aria-disabled="true"]) {
+    color: var(--brown-950);
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--gold-light),
+            var(--gold)
+        );
+
+    border-color: var(--gold-light);
+
+    box-shadow:
+        0 8px 24px rgba(199, 154, 69, 0.2);
+
+    transform: translateY(-2px);
+}
+
+.player-download[aria-disabled="true"] {
+    opacity: 0.36;
+    cursor: not-allowed;
+}
+
+.player-download[aria-disabled="true"]:hover {
+    background: rgba(255, 255, 255, 0.065);
+    border-color: rgba(255, 255, 255, 0.21);
+    transform: none;
+}
+
+#downloadAllButton {
+    color: var(--brown-950);
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--gold-light),
+            var(--gold)
+        );
+
+    border-color: var(--gold-light);
+
+    box-shadow:
+        0 8px 24px rgba(199, 154, 69, 0.18);
+}
+
+#downloadAllButton:hover {
+    background:
+        linear-gradient(
+            135deg,
+            #efd493,
+            var(--gold-light)
+        );
+
+    box-shadow:
+        0 12px 30px rgba(199, 154, 69, 0.28);
 }
 
 
@@ -1892,6 +1957,82 @@ html[dir="rtl"] .audio-search input {
     text-align: center;
 }
 
+/* =========================================
+   INDIVIDUAL AUDIO DOWNLOAD BUTTON
+========================================= */
+
+.audio-download-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    width: calc(100% - 32px);
+    min-height: 42px;
+
+    margin:
+        0
+        16px
+        16px;
+
+    padding:
+        8px
+        16px;
+
+    border:
+        1px solid
+        rgba(228, 196, 125, 0.3);
+
+    border-radius: var(--radius-pill);
+
+    color: var(--gold-light);
+
+    background:
+        rgba(199, 154, 69, 0.08);
+
+    font-size: 0.8rem;
+    font-weight: 700;
+    line-height: 1.4;
+
+    text-align: center;
+    text-decoration: none;
+
+    cursor: pointer;
+
+    transition:
+        color var(--transition-fast),
+        background-color var(--transition-fast),
+        border-color var(--transition-fast),
+        transform var(--transition-fast),
+        box-shadow var(--transition-fast);
+}
+
+.audio-download-button:hover {
+    color: var(--brown-950);
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--gold-light),
+            var(--gold)
+        );
+
+    border-color: var(--gold-light);
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 22px
+        rgba(199, 154, 69, 0.18);
+}
+
+.audio-download-button:active {
+    transform: translateY(0);
+}
+
+.audio-download-button span:first-child {
+    font-size: 0.95rem;
+}
 
 /* =========================================
    AUTHOR SECTION
