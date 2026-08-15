@@ -31,6 +31,8 @@
 
 const TOTAL_AUDIO = 56;
 
+const SEEK_SECONDS = 10;
+
 
 /*
    Audio files must be stored as:
@@ -173,6 +175,12 @@ const audioNoResults =
 
 const previousTrackButton =
     document.getElementById("previousTrackButton");
+
+const rewind10Button =
+    document.getElementById("rewind10Button");
+
+const forward10Button =
+    document.getElementById("forward10Button");
 
 const nextTrackButton =
     document.getElementById("nextTrackButton");
@@ -1157,6 +1165,65 @@ function updateAudioCardStates() {
 
 
 /* =========================================
+   AUDIO SEEK CONTROLS
+========================================= */
+
+function rewindAudio() {
+    if (
+        !mainAudio ||
+        selectedTrackNumber === null
+    ) {
+        return;
+    }
+
+    mainAudio.currentTime =
+        Math.max(
+            0,
+            mainAudio.currentTime -
+            SEEK_SECONDS
+        );
+}
+
+
+function forwardAudio() {
+    if (
+        !mainAudio ||
+        selectedTrackNumber === null
+    ) {
+        return;
+    }
+
+    if (
+        Number.isFinite(mainAudio.duration)
+    ) {
+        mainAudio.currentTime =
+            Math.min(
+                mainAudio.duration,
+                mainAudio.currentTime +
+                SEEK_SECONDS
+            );
+
+        return;
+    }
+
+    mainAudio.currentTime =
+        mainAudio.currentTime +
+        SEEK_SECONDS;
+}
+
+
+rewind10Button?.addEventListener(
+    "click",
+    rewindAudio
+);
+
+
+forward10Button?.addEventListener(
+    "click",
+    forwardAudio
+);
+
+/* =========================================
    PREVIOUS AND NEXT AUDIO
 ========================================= */
 
@@ -1171,6 +1238,15 @@ function updateAudioNavigation() {
     if (selectedTrackNumber === null) {
         previousTrackButton.disabled = true;
         nextTrackButton.disabled = true;
+
+        if (rewind10Button) {
+            rewind10Button.disabled = true;
+        }
+
+        if (forward10Button) {
+            forward10Button.disabled = true;
+        }
+
         return;
     }
 
@@ -1179,6 +1255,14 @@ function updateAudioNavigation() {
 
     nextTrackButton.disabled =
         selectedTrackNumber >= TOTAL_AUDIO;
+
+    if (rewind10Button) {
+        rewind10Button.disabled = false;
+    }
+
+    if (forward10Button) {
+        forward10Button.disabled = false;
+    }
 }
 
 
