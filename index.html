@@ -1309,7 +1309,7 @@
                         <div class="player-navigation">
 
 
-                            <!-- PREVIOUS -->
+                            <!-- PREVIOUS TRACK -->
 
                             <button
                                 id="previousTrackButton"
@@ -1328,8 +1328,49 @@
 
                             </button>
 
+                            <!-- REWIND 10 SECONDS -->
 
-                            <!-- NEXT -->
+                            <button
+                                id="rewind10Button"
+                                class="player-control"
+                                type="button"
+                                disabled
+                                aria-label="الرجوع 10 ثوانٍ"
+                                data-i18n-aria-label="audio.rewind10"
+                            >
+
+                                <span aria-hidden="true">
+                                    ↶
+                                </span>
+
+                                <span dir="ltr">
+                                    −10s
+                                </span>
+
+                            </button>
+                            
+                            <!-- FORWARD 10 SECONDS -->
+
+                            <button
+                                id="forward10Button"
+                                class="player-control"
+                                type="button"
+                                disabled
+                                aria-label="التقديم 10 ثوانٍ"
+                                data-i18n-aria-label="audio.forward10"
+                            >
+
+                                <span dir="ltr">
+                                    +10s
+                                </span>
+
+                                <span aria-hidden="true">
+                                    ↷
+                                </span>
+
+                            </button>
+
+                            <!-- NEXT TRACK-->
 
                             <button
                                 id="nextTrackButton"
