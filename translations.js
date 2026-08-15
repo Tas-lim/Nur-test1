@@ -248,6 +248,12 @@ window.TRANSLATIONS = {
             next:
                 "التالي",
 
+           rewind10:
+                "الرجوع 10 ثوانٍ",
+
+           forward10:
+                "التقديم 10 ثوانٍ",
+
            download:
                   "تنزيل",
 
@@ -662,6 +668,12 @@ window.TRANSLATIONS = {
             next:
                 "Next",
 
+           rewind10:
+                "Go back 10 seconds",
+
+           forward10:
+                "Go forward 10 seconds",
+
            download:
                 "Download",
 
@@ -1075,6 +1087,12 @@ window.TRANSLATIONS = {
 
             next:
                 "Suivant",
+
+           rewind10:
+                "Reculer de 10 secondes",
+
+           forward10:
+                "Avancer de 10 secondes",
 
            download:
                 "Télécharger",
