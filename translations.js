@@ -248,6 +248,18 @@ window.TRANSLATIONS = {
             next:
                 "التالي",
 
+           download:
+                  "تنزيل",
+
+           downloadCurrent:
+                  "تنزيل هذا التسجيل",
+
+           downloadAll:
+                  "تنزيل المكتبة الصوتية كاملة",
+
+           downloadTrack:
+                  "تنزيل التسجيل رقم {number}",
+
             searchLabel:
                 "ابحث في التسجيلات",
 
@@ -650,6 +662,18 @@ window.TRANSLATIONS = {
             next:
                 "Next",
 
+           download:
+                "Download",
+
+           downloadCurrent:
+                "Download this recording",
+
+           downloadAll:
+                "Download the full audio library",
+
+           downloadTrack:
+                "Download recording {number}",
+
             searchLabel:
                 "Search the recordings",
 
@@ -1051,6 +1075,18 @@ window.TRANSLATIONS = {
 
             next:
                 "Suivant",
+
+           download:
+                "Télécharger",
+
+           downloadCurrent:
+                "Télécharger cet enregistrement",
+
+           downloadAll:
+                "Télécharger toute la bibliothèque audio",
+
+           downloadTrack:
+                "Télécharger l’enregistrement {number}",
 
             searchLabel:
                 "Rechercher dans les enregistrements",
