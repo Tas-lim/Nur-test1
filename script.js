@@ -62,16 +62,16 @@ const DEFAULT_PLAYER_IMAGE =
 */
 
 const TRACK_ARTWORK = {
-    2: "images/page2.jpg",
-    3: "images/page3.jpg",
-    4: "images/page4.jpg",
-    5: "images/page5.jpg",
-    19: "images/page19.jpg",
-    21: "images/page21.jpg",
-    27: "images/page27.jpg",
-    29: "images/page29.jpg",
-    31: "images/page31.jpg",
-    33: "images/page33.jpg"
+    2: "images/page2.webp",
+    3: "images/page3.webp",
+    4: "images/page4.webp",
+    5: "images/page5.webp",
+    19: "images/page19.webp",
+    21: "images/page21.webp",
+    27: "images/page27.webp",
+    29: "images/page29.webp",
+    31: "images/page31.webp",
+    33: "images/page33.webp"
 };
 
 
