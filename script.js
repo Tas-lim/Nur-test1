@@ -1065,9 +1065,6 @@ function configureDownloadAllButton() {
 
     downloadAllButton.href =
         ALL_AUDIO_ARCHIVE;
-
-    downloadAllButton.download =
-        "noor-al-quran-audios.zip";
 }
 
 
