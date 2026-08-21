@@ -39,11 +39,11 @@ const SEEK_SECONDS = 10;
 /*
    Audio files must be stored as:
 
-   audio/1.mp3
    audio/2.mp3
    audio/3.mp3
+   audio/4.mp3
    ...
-   audio/56.mp3
+   audio/57.mp3
 */
 
 const AUDIO_FOLDER = "audio";
