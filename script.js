@@ -81,7 +81,7 @@ const TRACK_ARTWORK = {
 */
 
 const ALL_AUDIO_ARCHIVE =
-    "audio/noor-al-quran-audios.zip";
+    "https://github.com/Tas-lim/Nur-test1/releases/download/audio-v1/noor-al-quran-audios.zip";
 
 
 /*
