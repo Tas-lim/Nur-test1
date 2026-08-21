@@ -677,7 +677,7 @@ function createAudioLibrary() {
         document.createDocumentFragment();
 
     for (
-        let trackNumber = 1;
+        let trackNumber = 2;
         trackNumber <= TOTAL_AUDIO;
         trackNumber += 1
     ) {
