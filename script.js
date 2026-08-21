@@ -29,6 +29,8 @@
    WEBSITE CONFIGURATION
 ========================================= */
 
+const FIRST_AUDIO = 2;
+
 const TOTAL_AUDIO = 57;
 
 const SEEK_SECONDS = 10;
@@ -52,7 +54,7 @@ const AUDIO_FOLDER = "audio";
 */
 
 const DEFAULT_PLAYER_IMAGE =
-    "images/cover.jpg";
+    "images/cover.webp";
 
 
 /*
@@ -677,7 +679,7 @@ function createAudioLibrary() {
         document.createDocumentFragment();
 
     for (
-        let trackNumber = 2;
+        let trackNumber = FIRST_AUDIO;
         trackNumber <= TOTAL_AUDIO;
         trackNumber += 1
     ) {
@@ -888,7 +890,7 @@ function selectTrack(
 ) {
     if (
         !mainAudio ||
-        trackNumber < 1 ||
+        trackNumber < FIRST_AUDIO ||
         trackNumber > TOTAL_AUDIO
     ) {
         return;
@@ -1248,7 +1250,7 @@ function updateAudioNavigation() {
     }
 
     previousTrackButton.disabled =
-        selectedTrackNumber <= 1;
+        selectedTrackNumber <= FIRST_AUDIO;
 
     nextTrackButton.disabled =
         selectedTrackNumber >= TOTAL_AUDIO;
@@ -1266,7 +1268,7 @@ function updateAudioNavigation() {
 function playPreviousTrack() {
     if (
         selectedTrackNumber === null ||
-        selectedTrackNumber <= 1
+        selectedTrackNumber <= FIRST_AUDIO
     ) {
         return;
     }
@@ -1280,7 +1282,7 @@ function playPreviousTrack() {
 
 function playNextTrack() {
     if (selectedTrackNumber === null) {
-        selectTrack(1, true);
+        selectTrack(FIRST_AUDIO, true);
         return;
     }
 
