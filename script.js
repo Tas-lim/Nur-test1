@@ -189,6 +189,9 @@ const forward10Button =
 const nextTrackButton =
     document.getElementById("nextTrackButton");
 
+const playbackModeButtons =
+    document.querySelectorAll(".playback-mode-button");
+
 const currentDownloadButton =
     document.getElementById("currentDownloadButton");
 
@@ -624,6 +627,8 @@ function applyLanguage(
     updateCurrentTrackText();
 
     updateAudioNavigation();
+
+    updatePlaybackModeButtons();
 
     updateCurrentTrackDownload();
 
@@ -1316,6 +1321,69 @@ if (nextTrackButton) {
     );
 }
 
+/* =========================================
+   PLAYBACK MODE CONTROLS
+========================================= */
+
+const VALID_PLAYBACK_MODES = [
+    "repeat",
+    "up",
+    "down",
+    "shuffle"
+];
+
+
+function updatePlaybackModeButtons() {
+    playbackModeButtons.forEach(
+        (button) => {
+            const buttonMode =
+                button.dataset.playbackMode;
+
+            const isActive =
+                buttonMode === playbackMode;
+
+            button.classList.toggle(
+                "is-active",
+                isActive
+            );
+
+            button.setAttribute(
+                "aria-pressed",
+                String(isActive)
+            );
+        }
+    );
+}
+
+
+function setPlaybackMode(mode) {
+    if (
+        !VALID_PLAYBACK_MODES.includes(mode)
+    ) {
+        return;
+    }
+
+    playbackMode = mode;
+
+    updatePlaybackModeButtons();
+}
+
+
+playbackModeButtons.forEach(
+    (button) => {
+        button.addEventListener(
+            "click",
+            () => {
+                const selectedMode =
+                    button.dataset.playbackMode;
+
+                setPlaybackMode(
+                    selectedMode
+                );
+            }
+        );
+    }
+);
 
 /* =========================================
    AUTOMATIC PLAYBACK MODES
