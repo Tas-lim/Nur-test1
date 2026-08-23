@@ -266,6 +266,24 @@ window.TRANSLATIONS = {
            downloadTrack:
                   "تنزيل التسجيل رقم {number}",
 
+           playbackMode:
+                  "وضع التشغيل",
+
+           playbackModeLabel:
+                  "اختيار وضع التشغيل",
+
+           playbackRepeat:
+                  "تكرار التسجيل",
+
+           playbackUp:
+                  "تشغيل للأعلى",
+
+           playbackDown:
+                  "تشغيل للأسفل",
+
+            playbackShuffle:
+                "تشغيل عشوائي",
+
             searchLabel:
                 "ابحث في التسجيلات",
 
@@ -686,6 +704,24 @@ window.TRANSLATIONS = {
            downloadTrack:
                 "Download recording {number}",
 
+           playbackMode:
+                "Playback mode",
+
+           playbackModeLabel:
+                "Choose playback mode",
+
+           playbackRepeat:
+                "Repeat",
+
+           playbackUp:
+                "Play upwards",
+
+           playbackDown:
+                "Play downwards",
+
+           playbackShuffle:
+                "Shuffle",
+           
             searchLabel:
                 "Search the recordings",
 
@@ -1106,8 +1142,26 @@ window.TRANSLATIONS = {
            downloadTrack:
                 "Télécharger l’enregistrement {number}",
 
+           playbackMode:
+                "Mode de lecture",
+
+           playbackModeLabel:
+                "Choisir le mode de lecture",
+
+           playbackRepeat:
+                "Répéter",
+
+           playbackUp:
+                "Lire vers le haut",
+
             searchLabel:
                 "Rechercher dans les enregistrements",
+
+           playbackDown:
+                "Lire vers le bas",
+
+           playbackShuffle:
+                "Lecture aléatoire",
 
             searchPlaceholder:
                 "Rechercher par numéro d'enregistrement...",
