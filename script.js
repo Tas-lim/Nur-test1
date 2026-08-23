@@ -141,6 +141,8 @@ let currentLanguage = languageConfig.defaultLanguage;
 
 let selectedTrackNumber = null;
 
+let playbackMode = "down";
+
 let isAudioLibraryExpanded = true;
 
 let lightboxCurrentIndex = 0;
@@ -1316,6 +1318,127 @@ if (nextTrackButton) {
 
 
 /* =========================================
+   AUTOMATIC PLAYBACK MODES
+========================================= */
+
+function playRandomTrack() {
+    if (
+        selectedTrackNumber === null
+    ) {
+        selectTrack(
+            FIRST_AUDIO,
+            true
+        );
+
+        return;
+    }
+
+    const totalAvailableTracks =
+        TOTAL_AUDIO -
+        FIRST_AUDIO +
+        1;
+
+    if (totalAvailableTracks <= 1) {
+        selectTrack(
+            selectedTrackNumber,
+            true
+        );
+
+        return;
+    }
+
+    let randomTrack;
+
+    do {
+        randomTrack =
+            Math.floor(
+                Math.random() *
+                totalAvailableTracks
+            ) +
+            FIRST_AUDIO;
+    } while (
+        randomTrack ===
+        selectedTrackNumber
+    );
+
+    selectTrack(
+        randomTrack,
+        true
+    );
+}
+
+
+function handleAutomaticPlayback() {
+    if (
+        selectedTrackNumber === null
+    ) {
+        return;
+    }
+
+    switch (playbackMode) {
+
+        /*
+           Repeat the current recording.
+        */
+
+        case "repeat":
+            selectTrack(
+                selectedTrackNumber,
+                true
+            );
+            break;
+
+
+        /*
+           Play upwards:
+
+           57 → 56 → 55 → ... → 2
+        */
+
+        case "up":
+            if (
+                selectedTrackNumber >
+                FIRST_AUDIO
+            ) {
+                selectTrack(
+                    selectedTrackNumber - 1,
+                    true
+                );
+            }
+            break;
+
+
+        /*
+           Play downwards:
+
+           2 → 3 → 4 → ... → 57
+        */
+
+        case "down":
+            if (
+                selectedTrackNumber <
+                TOTAL_AUDIO
+            ) {
+                selectTrack(
+                    selectedTrackNumber + 1,
+                    true
+                );
+            }
+            break;
+
+
+        /*
+           Play another recording randomly.
+        */
+
+        case "shuffle":
+            playRandomTrack();
+            break;
+    }
+}
+
+
+/* =========================================
    MAIN AUDIO EVENTS
 ========================================= */
 
@@ -1339,16 +1462,7 @@ if (mainAudio) {
         () => {
             updateAudioCardStates();
 
-            /*
-               Automatically play the next track.
-            */
-
-            if (
-                selectedTrackNumber !== null &&
-                selectedTrackNumber < TOTAL_AUDIO
-            ) {
-                playNextTrack();
-            }
+            handleAutomaticPlayback();
         }
     );
 
