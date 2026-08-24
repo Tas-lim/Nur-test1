@@ -544,7 +544,7 @@ a[aria-disabled="true"]:hover {
             rgba(20, 12, 7, 0.62),
             rgba(20, 12, 7, 0.8)
         ),
-        url("images/cover.jpg");
+        url("images/cover.webp");
 
     background-position: center;
     background-size: cover;
