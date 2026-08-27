@@ -1430,127 +1430,133 @@
 
                         </div>
 
-                        <!-- =================================
-                             PLAYBACK MODE
-                        ================================== -->
+                <!-- =================================
+     PLAYBACK MODE SELECTOR
+================================= -->
 
-                        <div
-                            class="playback-mode-selector"
-                            aria-label="وضع التشغيل"
-                            data-i18n-aria-label="audio.playbackModeLabel"
-                        >
+<div class="playback-mode-selector">
 
-                            <span
-                                class="playback-mode-title"
-                                data-i18n="audio.playbackMode"
-                            >
-                                وضع التشغيل
-                            </span>
+    <button
+        id="playbackModeToggle"
+        class="playback-mode-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="playbackModePanel"
+    >
 
+        <span
+            class="playback-mode-toggle-label"
+            data-i18n="audio.playbackMode"
+        >
+            وضع التشغيل
+        </span>
 
-                            <div class="playback-mode-buttons">
+        <span
+            id="playbackModeCurrent"
+            class="playback-mode-current"
+        >
+            ↓ تشغيل للأسفل
+        </span>
 
+        <span
+            class="playback-mode-arrow"
+            aria-hidden="true"
+        >
+            ▾
+        </span>
 
-                                <!-- REPEAT CURRENT -->
-
-                                <button
-                                    class="playback-mode-button"
-                                    type="button"
-                                    data-playback-mode="repeat"
-                                    aria-pressed="false"
-                                >
-
-                                    <span aria-hidden="true">
-                                        🔁
-                                    </span>
-
-                                    <span
-                                        class="playback-mode-text"
-                                        data-i18n="audio.playbackRepeat"
-                                    >
-                                        تكرار التسجيل
-                                    </span>
-
-                                </button>
+    </button>
 
 
-                                <!-- PLAY UPWARDS -->
-
-                                <button
-                                    class="playback-mode-button"
-                                    type="button"
-                                    data-playback-mode="up"
-                                    aria-pressed="false"
-                                >
-
-                                    <span aria-hidden="true">
-                                        ↑
-                                    </span>
-
-                                    <span
-                                        class="playback-mode-text"
-                                        data-i18n="audio.playbackUp"
-                                    >
-                                        تشغيل للأعلى
-                                    </span>
-
-                                </button>
+    <div
+        id="playbackModePanel"
+        class="playback-mode-panel"
+        hidden
+    >
 
 
-                                <!-- PLAY DOWNWARDS -->
+        <!-- REPEAT CURRENT -->
 
-                                <button
-                                    class="playback-mode-button is-active"
-                                    type="button"
-                                    data-playback-mode="down"
-                                    aria-pressed="true"
-                                >
+        <button
+            class="playback-mode-button"
+            type="button"
+            data-playback-mode="repeat"
+            aria-pressed="false"
+        >
 
-                                    <span aria-hidden="true">
-                                        ↓
-                                    </span>
+            <span aria-hidden="true">
+                🔁
+            </span>
 
-                                    <span
-                                        class="playback-mode-text"
-                                        data-i18n="audio.playbackDown"
-                                    >
-                                        تشغيل للأسفل
-                                    </span>
+            <span data-i18n="audio.playbackRepeat">
+                تكرار التسجيل
+            </span>
 
-                                </button>
+        </button>
 
 
-                                <!-- SHUFFLE -->
+        <!-- PLAY UPWARDS -->
 
-                                <button
-                                    class="playback-mode-button"
-                                    type="button"
-                                    data-playback-mode="shuffle"
-                                    aria-pressed="false"
-                                >
+        <button
+            class="playback-mode-button"
+            type="button"
+            data-playback-mode="up"
+            aria-pressed="false"
+        >
 
-                                    <span aria-hidden="true">
-                                        🔀
-                                    </span>
+            <span aria-hidden="true">
+                ↑
+            </span>
 
-                                    <span
-                                        class="playback-mode-text"
-                                        data-i18n="audio.playbackShuffle"
-                                    >
-                                        تشغيل عشوائي
-                                    </span>
+            <span data-i18n="audio.playbackUp">
+                تشغيل للأعلى
+            </span>
 
-                                </button>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </div>
+        </button>
 
 
+        <!-- PLAY DOWNWARDS -->
+
+        <button
+            class="playback-mode-button is-active"
+            type="button"
+            data-playback-mode="down"
+            aria-pressed="true"
+        >
+
+            <span aria-hidden="true">
+                ↓
+            </span>
+
+            <span data-i18n="audio.playbackDown">
+                تشغيل للأسفل
+            </span>
+
+        </button>
+
+
+        <!-- SHUFFLE -->
+
+        <button
+            class="playback-mode-button"
+            type="button"
+            data-playback-mode="shuffle"
+            aria-pressed="false"
+        >
+
+            <span aria-hidden="true">
+                🔀
+            </span>
+
+            <span data-i18n="audio.playbackShuffle">
+                تشغيل عشوائي
+            </span>
+
+        </button>
+
+    </div>
+
+</div>       
                 <!-- =================================
                      AUDIO SEARCH AND COLLAPSE
                 ================================== -->
