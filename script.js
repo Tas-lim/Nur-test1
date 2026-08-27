@@ -143,6 +143,8 @@ let selectedTrackNumber = null;
 
 let playbackMode = "down";
 
+let isPlaybackModeOpen = false;
+
 let isAudioLibraryExpanded = true;
 
 let lightboxCurrentIndex = 0;
@@ -188,6 +190,15 @@ const forward10Button =
 
 const nextTrackButton =
     document.getElementById("nextTrackButton");
+
+const playbackModeToggle =
+    document.getElementById("playbackModeToggle");
+
+const playbackModePanel =
+    document.getElementById("playbackModePanel");
+
+const playbackModeCurrent =
+    document.getElementById("playbackModeCurrent");
 
 const playbackModeButtons =
     document.querySelectorAll(".playback-mode-button");
@@ -1333,6 +1344,41 @@ const VALID_PLAYBACK_MODES = [
 ];
 
 
+function getPlaybackModeInformation() {
+    switch (playbackMode) {
+
+        case "repeat":
+            return {
+                icon: "🔁",
+                translation:
+                    "audio.playbackRepeat"
+            };
+
+        case "up":
+            return {
+                icon: "↑",
+                translation:
+                    "audio.playbackUp"
+            };
+
+        case "shuffle":
+            return {
+                icon: "🔀",
+                translation:
+                    "audio.playbackShuffle"
+            };
+
+        case "down":
+        default:
+            return {
+                icon: "↓",
+                translation:
+                    "audio.playbackDown"
+            };
+    }
+}
+
+
 function updatePlaybackModeButtons() {
     playbackModeButtons.forEach(
         (button) => {
@@ -1353,6 +1399,64 @@ function updatePlaybackModeButtons() {
             );
         }
     );
+
+
+    if (playbackModeCurrent) {
+        const modeInformation =
+            getPlaybackModeInformation();
+
+        playbackModeCurrent.textContent =
+            `${modeInformation.icon} ${
+                getTranslation(
+                    modeInformation.translation
+                )
+            }`;
+    }
+}
+
+
+function updatePlaybackModePanel() {
+    if (
+        !playbackModeToggle ||
+        !playbackModePanel
+    ) {
+        return;
+    }
+
+    playbackModePanel.hidden =
+        !isPlaybackModeOpen;
+
+    playbackModeToggle.setAttribute(
+        "aria-expanded",
+        String(isPlaybackModeOpen)
+    );
+
+    playbackModeToggle.classList.toggle(
+        "is-open",
+        isPlaybackModeOpen
+    );
+}
+
+
+function openPlaybackModePanel() {
+    isPlaybackModeOpen = true;
+
+    updatePlaybackModePanel();
+}
+
+
+function closePlaybackModePanel() {
+    isPlaybackModeOpen = false;
+
+    updatePlaybackModePanel();
+}
+
+
+function togglePlaybackModePanel() {
+    isPlaybackModeOpen =
+        !isPlaybackModeOpen;
+
+    updatePlaybackModePanel();
 }
 
 
@@ -1366,7 +1470,15 @@ function setPlaybackMode(mode) {
     playbackMode = mode;
 
     updatePlaybackModeButtons();
+
+    closePlaybackModePanel();
 }
+
+
+playbackModeToggle?.addEventListener(
+    "click",
+    togglePlaybackModePanel
+);
 
 
 playbackModeButtons.forEach(
@@ -1384,7 +1496,6 @@ playbackModeButtons.forEach(
         );
     }
 );
-
 /* =========================================
    AUTOMATIC PLAYBACK MODES
 ========================================= */
