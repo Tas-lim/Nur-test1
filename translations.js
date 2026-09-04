@@ -98,7 +98,7 @@ window.TRANSLATIONS = {
                 "انتقل إلى المحتوى الرئيسي",
 
             nextSection:
-                "انتقل إلى القسم التالي"
+                "انتقل إلى القسم التالي",
 
            scrollToTop:
                "العودة إلى أعلى الصفحة",
@@ -542,7 +542,7 @@ window.TRANSLATIONS = {
                 "Skip to the main content",
 
             nextSection:
-                "Go to the next section"
+                "Go to the next section",
 
            scrollToTop:
                 "Go to the top of the page",
@@ -985,7 +985,7 @@ window.TRANSLATIONS = {
                 "Aller au contenu principal",
 
             nextSection:
-                "Aller à la section suivante"
+                "Aller à la section suivante",
 
            scrollToTop:
                 "Aller en haut de la page",
