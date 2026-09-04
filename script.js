@@ -147,6 +147,8 @@ let isPlaybackModeOpen = false;
 
 let isAudioLibraryExpanded = true;
 
+let lastScrollPosition = window.scrollY;
+
 let lightboxCurrentIndex = 0;
 
 let previouslyFocusedElement = null;
@@ -160,6 +162,15 @@ const documentElement = document.documentElement;
 
 const languageButtons =
     document.querySelectorAll(".language-button");
+
+const languageSwitcher =
+    document.getElementById("languageSwitcher");
+
+const scrollToTopButton =
+    document.getElementById("scrollToTopButton");
+
+const scrollToBottomButton =
+    document.getElementById("scrollToBottomButton");
 
 const mainAudio =
     document.getElementById("mainAudio");
@@ -2134,6 +2145,207 @@ contactButton?.addEventListener(
     }
 );
 
+/* =========================================
+   FLOATING PAGE NAVIGATION
+========================================= */
+
+const FLOATING_LANGUAGE_OFFSET = 120;
+
+const SCROLL_DIRECTION_THRESHOLD = 5;
+
+
+function prefersReducedMotion() {
+    return window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+    ).matches;
+}
+
+
+/*
+   Keep the language selector available
+   after the visitor leaves the top area.
+*/
+
+function updateFloatingLanguageSwitcher() {
+    if (!languageSwitcher) {
+        return;
+    }
+
+    languageSwitcher.classList.toggle(
+        "is-floating",
+        window.scrollY >
+            FLOATING_LANGUAGE_OFFSET
+    );
+}
+
+
+/*
+   Show ↓ while scrolling downward.
+
+   Show ↑ while scrolling upward.
+*/
+
+function updatePageScrollControls() {
+    const currentScrollPosition =
+        window.scrollY;
+
+    const scrollDifference =
+        currentScrollPosition -
+        lastScrollPosition;
+
+    const documentHeight =
+        document.documentElement.scrollHeight;
+
+    const viewportHeight =
+        window.innerHeight;
+
+    const isAtTop =
+        currentScrollPosition <= 5;
+
+    const isAtBottom =
+        currentScrollPosition +
+            viewportHeight >=
+        documentHeight - 5;
+
+
+    if (isAtTop) {
+        scrollToTopButton?.classList.remove(
+            "is-visible"
+        );
+
+        scrollToBottomButton?.classList.remove(
+            "is-visible"
+        );
+
+        lastScrollPosition =
+            currentScrollPosition;
+
+        return;
+    }
+
+
+    if (isAtBottom) {
+        scrollToBottomButton?.classList.remove(
+            "is-visible"
+        );
+
+        /*
+           At the bottom, keeping the upward
+           button available is useful.
+        */
+
+        scrollToTopButton?.classList.add(
+            "is-visible"
+        );
+
+        lastScrollPosition =
+            currentScrollPosition;
+
+        return;
+    }
+
+
+    /*
+       Ignore extremely small movements.
+    */
+
+    if (
+        Math.abs(scrollDifference) <
+        SCROLL_DIRECTION_THRESHOLD
+    ) {
+        return;
+    }
+
+
+    if (scrollDifference > 0) {
+
+        /*
+           Visitor is scrolling down.
+        */
+
+        scrollToTopButton?.classList.remove(
+            "is-visible"
+        );
+
+        scrollToBottomButton?.classList.add(
+            "is-visible"
+        );
+
+    } else {
+
+        /*
+           Visitor is scrolling up.
+        */
+
+        scrollToBottomButton?.classList.remove(
+            "is-visible"
+        );
+
+        scrollToTopButton?.classList.add(
+            "is-visible"
+        );
+    }
+
+
+    lastScrollPosition =
+        currentScrollPosition;
+}
+
+
+function updateFloatingNavigation() {
+    updateFloatingLanguageSwitcher();
+
+    updatePageScrollControls();
+}
+
+
+window.addEventListener(
+    "scroll",
+    updateFloatingNavigation,
+    {
+        passive: true
+    }
+);
+
+
+/* =========================================
+   SCROLL TO TOP
+========================================= */
+
+scrollToTopButton?.addEventListener(
+    "click",
+    () => {
+        window.scrollTo({
+            top: 0,
+
+            behavior:
+                prefersReducedMotion()
+                    ? "auto"
+                    : "smooth"
+        });
+    }
+);
+
+
+/* =========================================
+   SCROLL TO BOTTOM
+========================================= */
+
+scrollToBottomButton?.addEventListener(
+    "click",
+    () => {
+        window.scrollTo({
+            top:
+                document.documentElement
+                    .scrollHeight,
+
+            behavior:
+                prefersReducedMotion()
+                    ? "auto"
+                    : "smooth"
+        });
+    }
+);
 
 /* =========================================
    SMOOTH INTERNAL NAVIGATION
@@ -2222,6 +2434,8 @@ function initializeWebsite() {
     updateAudioLibraryToggle();
 
     updateGalleryAccessibility();
+
+   updateFloatingNavigation();
 }
 
 
