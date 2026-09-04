@@ -403,93 +403,108 @@ html[lang="ar"] .section-eyebrow {
 .page-scroll-controls {
     position: fixed;
 
-    right: 18px;
-    bottom: 22px;
+    left: 50%;
+    bottom: 26px;
 
     z-index: 999;
 
     pointer-events: none;
+
+    transform: translateX(-50%);
 }
 
 
 .page-scroll-button {
     position: absolute;
 
-    right: 0;
+    left: 50%;
     bottom: 0;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
-    width: 48px;
-    height: 48px;
+    width: 56px;
+    height: 56px;
 
     padding: 0;
 
-    border:
-        1px solid
-        transparent;
-
+    border: 1px solid rgba(255, 255, 255, 0.28);
     border-radius: 50%;
 
-    color: var(--gold-light);
+    color: rgba(255, 255, 255, 0.92);
 
-    background:
-        transparent;
+    background: rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(4px);
 
     font: inherit;
-    font-size: 1.65rem;
-    font-weight: 700;
+    font-size: 1.7rem;
+    font-weight: 500;
+    line-height: 1;
 
     opacity: 0;
-
     visibility: hidden;
 
     pointer-events: none;
-
     cursor: pointer;
 
-    transform:
-        translateY(8px);
+    transform: translate(-50%, 10px);
+
+    box-shadow:
+        0 10px 28px rgba(0, 0, 0, 0.22);
 
     transition:
         opacity var(--transition-fast),
         transform var(--transition-fast),
+        visibility var(--transition-fast),
+        border-color var(--transition-fast),
+        background-color var(--transition-fast),
         color var(--transition-fast),
-        visibility var(--transition-fast);
+        box-shadow var(--transition-fast);
 }
 
 
 .page-scroll-button.is-visible {
     opacity: 1;
-
     visibility: visible;
-
     pointer-events: auto;
 
-    transform:
-        translateY(0);
+    transform: translate(-50%, 0);
 }
 
 
 .page-scroll-button:hover {
-    color: var(--gold);
+    color: #ffffff;
 
-    background:
-        transparent;
+    background: rgba(255, 255, 255, 0.08);
 
-    border-color:
-        transparent;
+    border-color: rgba(255, 255, 255, 0.42);
+
+    box-shadow:
+        0 14px 34px rgba(0, 0, 0, 0.28);
 }
 
 
 .page-scroll-button:focus-visible {
-    outline:
-        2px solid
-        var(--gold-light);
+    outline: 2px solid rgba(255, 255, 255, 0.65);
+    outline-offset: 4px;
+}
 
-    outline-offset: 3px;
+
+@media (max-width: 620px) {
+    .page-scroll-controls {
+        bottom:
+            calc(
+                18px +
+                env(safe-area-inset-bottom)
+            );
+    }
+
+    .page-scroll-button {
+        width: 52px;
+        height: 52px;
+        font-size: 1.55rem;
+    }
 }
 
 /* =========================================
