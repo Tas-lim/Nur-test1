@@ -234,6 +234,9 @@ html[dir="rtl"] .footer-brand {
     border-color: transparent;
 
     box-shadow: none;
+
+    text-shadow:
+       0 1px 3px rgba(22, 14, 9, 0.85);
 }
 
 
