@@ -205,6 +205,46 @@ html[dir="rtl"] .footer-brand {
     text-align: right;
 }
 
+/* =========================================
+   FLOATING LANGUAGE SWITCHER
+========================================= */
+
+.language-switcher.is-floating {
+    position: fixed;
+
+    top: 14px;
+    right: 14px;
+
+    z-index: 1000;
+
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+
+/*
+   Keep the floating version visually light.
+*/
+
+.language-switcher.is-floating
+.language-button {
+    background: transparent;
+
+    border-color: transparent;
+
+    box-shadow: none;
+}
+
+
+.language-switcher.is-floating
+.language-button:hover {
+    background: transparent;
+
+    border-color: transparent;
+
+    box-shadow: none;
+}
 
 /* =========================================
    ACCESSIBILITY
@@ -353,6 +393,101 @@ html[lang="ar"] .section-eyebrow {
     transform: scaleX(-1);
 }
 
+/* =========================================
+   PAGE SCROLL CONTROLS
+========================================= */
+
+.page-scroll-controls {
+    position: fixed;
+
+    right: 18px;
+    bottom: 22px;
+
+    z-index: 999;
+
+    pointer-events: none;
+}
+
+
+.page-scroll-button {
+    position: absolute;
+
+    right: 0;
+    bottom: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 48px;
+    height: 48px;
+
+    padding: 0;
+
+    border:
+        1px solid
+        transparent;
+
+    border-radius: 50%;
+
+    color: var(--gold-light);
+
+    background:
+        transparent;
+
+    font: inherit;
+    font-size: 1.65rem;
+    font-weight: 700;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+
+    cursor: pointer;
+
+    transform:
+        translateY(8px);
+
+    transition:
+        opacity var(--transition-fast),
+        transform var(--transition-fast),
+        color var(--transition-fast),
+        visibility var(--transition-fast);
+}
+
+
+.page-scroll-button.is-visible {
+    opacity: 1;
+
+    visibility: visible;
+
+    pointer-events: auto;
+
+    transform:
+        translateY(0);
+}
+
+
+.page-scroll-button:hover {
+    color: var(--gold);
+
+    background:
+        transparent;
+
+    border-color:
+        transparent;
+}
+
+
+.page-scroll-button:focus-visible {
+    outline:
+        2px solid
+        var(--gold-light);
+
+    outline-offset: 3px;
+}
 
 /* =========================================
    BUTTONS
