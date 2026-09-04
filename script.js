@@ -2177,11 +2177,45 @@ function updateFloatingLanguageSwitcher() {
         return;
     }
 
-    languageSwitcher.classList.toggle(
-        "is-floating",
+    const shouldFloat =
         window.scrollY >
-            FLOATING_LANGUAGE_OFFSET
+        FLOATING_LANGUAGE_OFFSET;
+
+
+    if (shouldFloat) {
+
+        if (
+            languageSwitcher.parentNode !==
+            document.body
+        ) {
+            document.body.appendChild(
+                languageSwitcher
+            );
+        }
+
+        languageSwitcher.classList.add(
+            "is-floating"
+        );
+
+        return;
+    }
+
+
+    languageSwitcher.classList.remove(
+        "is-floating"
     );
+
+
+    if (
+        languageSwitcherOriginalParent &&
+        languageSwitcher.parentNode !==
+            languageSwitcherOriginalParent
+    ) {
+        languageSwitcherOriginalParent.insertBefore(
+            languageSwitcher,
+            languageSwitcherOriginalNextSibling
+        );
+    }
 }
 
 
