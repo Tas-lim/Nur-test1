@@ -166,6 +166,12 @@ const languageButtons =
 const languageSwitcher =
     document.getElementById("languageSwitcher");
 
+const languageSwitcherOriginalParent =
+    languageSwitcher?.parentNode || null;
+
+const languageSwitcherOriginalNextSibling =
+    languageSwitcher?.nextSibling || null;
+
 const scrollToTopButton =
     document.getElementById("scrollToTopButton");
 
