@@ -3202,6 +3202,33 @@ html[dir="rtl"] .purchase-image img {
         justify-content: center;
     }
 
+   .language-switcher.is-floating {
+        width: auto;
+
+        top:
+           calc(
+               10px +
+               env(safe-area-inset-top)
+           );
+
+          right: 10px;
+
+          justify-content: flex-start;
+      }
+
+
+   .language-switcher.is-floating
+   .language-button {
+        flex: 0 0 auto;
+
+        width: auto;
+        max-width: none;
+
+        padding:
+           6px
+           10px;
+   }
+
     .language-button {
         flex: 1;
         max-width: 145px;
@@ -3547,6 +3574,7 @@ html[dir="rtl"] .purchase-image img {
     .top-bar,
     .hero-actions,
     .scroll-indicator,
+    .page-scroll-controls,
     .audio-section,
     .purchase-actions,
     .telegram-section,
