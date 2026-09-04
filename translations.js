@@ -100,6 +100,12 @@ window.TRANSLATIONS = {
             nextSection:
                 "انتقل إلى القسم التالي"
 
+           scrollToTop:
+               "العودة إلى أعلى الصفحة",
+
+           scrollToBottom:
+               "الانتقال إلى أسفل الصفحة",
+
         },
 
 
@@ -538,6 +544,11 @@ window.TRANSLATIONS = {
             nextSection:
                 "Go to the next section"
 
+           scrollToTop:
+                "Go to the top of the page",
+
+           scrollToBottom:
+                "Go to the bottom of the page",       
         },
 
 
@@ -976,6 +987,11 @@ window.TRANSLATIONS = {
             nextSection:
                 "Aller à la section suivante"
 
+           scrollToTop:
+                "Aller en haut de la page",
+
+           scrollToBottom:
+                "Aller en bas de la page",
         },
 
 
